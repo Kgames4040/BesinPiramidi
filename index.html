@@ -44,15 +44,14 @@
     <div class="container">
         <h2>Besin Piramidi</h2>
         <p>Bir trofik düzey seçin:</p>
-        <button class="btn" onclick="showVideo('video1.mp4')">1. Katman Üreticiler</button>
-        <button class="btn" onclick="showVideo('video2.mp4')">2.Katman Birincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('video3.mp4')">3.Katman İkincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('video4.mp4')">4.Katman Üçüncül Tüketiciler</button>
-        <button class="btn" onclick="showVideo('video5.mp4')">5.Katman Apex Yırtıcılar</button>
-        
+        <button class="btn" onclick="showVideo('videos/video1.mp4')">Üreticiler</button>
+        <button class="btn" onclick="showVideo('videos/video2.mp4')">Birincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video3.mp4')">İkincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video4.mp4')">Üçüncül Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video5.mp4')"> Yırtıcılar</button>
         <div id="videoContainer">
             <video id="videoPlayer" width="100%" controls>
-                <source id="videoSource" src="" type="video/mp4">
+                <source id="videoSource" src="videos/video1.mp4" type="video/mp4">
                 Tarayıcınız video etiketini desteklemiyor.
             </video>
         </div>
