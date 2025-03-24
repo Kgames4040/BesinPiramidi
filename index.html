@@ -44,11 +44,11 @@
     <div class="container">
         <h2>Besin Piramidi</h2>
         <p>Osmana Saygılarımla:</p>
-        <button class="btn" onclick="showVideo('videos/video1.mp4')">1.DÜZEY Üreticiler</button>
-        <button class="btn" onclick="showVideo('videos/video2.mp4')">2.DÜZEY Birincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video3.mp4')">3.DÜZEY İkincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video4.mp4')">4.DÜZEY Üçüncül Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video5.mp4')">5.DÜZEY Yırtıcılar</button>
+        <button class="btn" onclick="showVideo('videos/video1.mp4')">Üreticiler</button>
+        <button class="btn" onclick="showVideo('videos/video2.mp4')">Birincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video3.mp4')">İkincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video4.mp4')">Üçüncül Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video5.mp4')"> Yırtıcılar</button>
         <div id="videoContainer">
             <video id="videoPlayer" width="100%" controls>
                 <source id="videoSource" src="videos/video1.mp4" type="video/mp4">
@@ -69,16 +69,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sağ Alt Köşede İsim Listesi</title>
+        <title>Orta Alt Kısımda İsim Listesi</title>
         <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
         <style>
+            body {
+                margin: 0;
+                background-color: #f5f5f5; /* Arka plan rengi (Opsiyonel) */
+            }
+    
             .name-list {
-                position: fixed;
-                bottom: 10px;
-                right: 10px;
-                font-size: 30px;
-                color: rgb(8, 8, 8);
+                position: absolute;
+                bottom: 20px; /* Sayfanın altından mesafe */
+                left: 50%; /* Yatayda ortalamak için */
+                transform: translateX(-50%); /* Tam ortaya hizalamak için */
+                font-size: 27px;
+                color: rgb(5, 5, 5);
                 font-family: 'Luckiest Guy', cursive;
+                text-align: center;
             }
     
             .name-list ul {
