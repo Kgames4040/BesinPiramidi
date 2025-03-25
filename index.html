@@ -4,126 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Besin Piramidi</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
             padding: 20px;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: rgb(21, 120, 185);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(247, 245, 245, 0.1);
+
+        /* Piramit Konteyneri */
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
         }
+
+        /* Piramit Butonları */
+        .level {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 5px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Katmanların genişlikleri */
+        .base { width: 23%; }
+        .level1 { width: 40%; }
+        .level2 { width: 60%; }
+        .level3 { width: 80%; }
+        .level4 { width: 100%; }
+
+        /* Katmanlara özel renkler */
+        .base { background-color: #e00606e8; } /* Yeşil - Üreticiler */
+        .level1 { background-color: #be6703c5; } /* Sarı - Birincil Tüketiciler */
+        .level2 { background-color: #887f00; } /* Turuncu - İkincil Tüketiciler */
+        .level3 { background-color: #b3c50d; } /* Koyu Turuncu - Üçüncül Tüketiciler */
+        .level4 { background-color: #057017; } /* Kırmızı - Tepe Yırtıcıları */
+
+        /* Hakkında Butonu */
         .btn {
             display: block;
             width: 100%;
-            margin: 10px 0;
+            max-width: 200px;
+            margin: 20px auto;
             padding: 15px;
-            background-color: #af784c;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Video Gösterme Alanı */
+        #videoContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #videoContainer video {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #videoContainer button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background: red;
             color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 30px;
         }
-        .btn:hover {
-            background-color: #45a063;
-        }
-        #videoContainer {
-            margin-top: 20px;
-            display: none;
-        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Besin Piramidi</h2>
-        <p>Osmana Saygılarımla:</p>
-        <button class="btn" onclick="showVideo('videos/video1.mp4')">Üreticiler</button>
-        <button class="btn" onclick="showVideo('videos/video2.mp4')">Birincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video3.mp4')">İkincil Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video4.mp4')">Üçüncül Tüketiciler</button>
-        <button class="btn" onclick="showVideo('videos/video5.mp4')"> Yırtıcılar</button>
-        <div id="videoContainer">
-            <video id="videoPlayer" width="100%" controls>
-                <source id="videoSource" src="videos/video1.mp4" type="video/mp4">
-                Tarayıcınız video etiketini desteklemiyor.
-            </video>
-        </div>
-    </div>
-    
-    <a href="about.html" class="btn">Hakkında</a>
-    
-</div>
 
-    
+    <div class="pyramid">
+        <button class="level base" onclick="playVideo('videos/video5.mp4')">Yırtıcılar </button>
+        <button class="level level1" onclick="playVideo('videos/video4.mp4')">Üçüncül Tüketiciler</button>
+        <button class="level level2" onclick="playVideo('videos/video3.mp4')">İkincil Tüketiciler</button>
+        <button class="level level3" onclick="playVideo('videos/video2.mp4')">Birincil Tüketiciler</button>
+        <button class="level level4" onclick="playVideo('videos/video1.mp4')"> Üreticiler</button>
+    </div>
+
+    <a href="about.html" class="btn">Hakkında</a>
+
+    <!-- Video Gösterme Alanı -->
+    <div id="videoContainer">
+        <video id="videoPlayer" controls></video>
+        <button onclick="closeVideo()">Kapat</button>
+    </div>
+
     <script>
-        function showVideo(videoFile) {
-            document.getElementById('videoContainer').style.display = 'block';
-            document.getElementById('videoSource').src = videoFile;
-            document.getElementById('videoPlayer').load();
+        function playVideo(videoFile) {
+            var videoContainer = document.getElementById("videoContainer");
+            var videoPlayer = document.getElementById("videoPlayer");
+
+            videoPlayer.src = videoFile;
+            videoContainer.style.display = "block";
+        }
+
+        function closeVideo() {
+            var videoContainer = document.getElementById("videoContainer");
+            var videoPlayer = document.getElementById("videoPlayer");
+
+            videoPlayer.pause();
+            videoPlayer.src = "";
+            videoContainer.style.display = "none";
         }
     </script>
 
-<html lang="tr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Orta Alt Kısımda İsim Listesi</title>
-        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-        <style>
-            body {
-                margin: 0;
-                background-color: #f5f5f5; /* Arka plan rengi (Opsiyonel) */
-            }
-    
-            .name-list {
-                position: absolute;
-                bottom: 0px; /* Sayfanın altından mesafe */
-                left: 50%; /* Yatayda ortalamak için */
-                transform: translateX(-50%); /* Tam ortaya hizalamak için */
-                font-size: 22px;
-                color: rgb(5, 5, 5);
-                font-family: 'Luckiest Guy', cursive;
-                text-align: center;
-            }
-    
-            .name-list ul {
-                padding: 0;
-                margin: 0;
-            }
-    
-            .name-list li {
-                list-style: none;
-                margin-bottom: 7px;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="name-list">
-            <ul>
-                <li>11/D SINIF ÖĞRENCİLERİ</li>
-                
-            </ul>
-        </div>
-
-        <script>
-            function showAbout() {
-                document.getElementById("aboutSection").style.display = "block"; // Hakkında bölümünü göster
-                document.getElementById("content").style.display = "none"; // Ana içeriği gizle
-            }
-        
-            function goHome() {
-                document.getElementById("aboutSection").style.display = "none"; // Hakkında bölümünü gizle
-                document.getElementById("content").style.display = "block"; // Ana içeriği göster
-            }
-        </script>
-
-    </body>
+</body>
 </html>
