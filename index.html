@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkında</title>
+    <title>Besin Piramidi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,43 +14,116 @@
         .container {
             max-width: 600px;
             margin: auto;
-            background: white;
+            background: rgb(21, 120, 185);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(247, 245, 245, 0.1);
         }
         .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #af784c;
             color: white;
             border: none;
             border-radius: 5px;
-            text-decoration: none;
-            font-size: 18px;
+            cursor: pointer;
+            font-size: 30px;
         }
         .btn:hover {
-            background-color: #45a049;
+            background-color: #45a063;
+        }
+        #videoContainer {
+            margin-top: 20px;
+            display: none;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Hakkında</h1>
-    <p>Bu proje, besin piramidi hakkında bilgi vermek amacıyla hazırlanmıştır.</p>
-    <p>DÜZİÇİ FEN LİSESİ 2024 2025 11-D SINIF ÖĞRENCİLERİ Necati ÇOBAN /
-                                        Ali Osman MART /
-                                        Hacı Serkan TORUN /
-                                        Yusuf ÇINAR TARAFINDAN HAZIRLANMIŞTIR
-    </p>
+    <div class="container">
+        <h2>Besin Piramidi</h2>
+        <p>Osmana Saygılarımla:</p>
+        <button class="btn" onclick="showVideo('videos/video1.mp4')">Üreticiler</button>
+        <button class="btn" onclick="showVideo('videos/video2.mp4')">Birincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video3.mp4')">İkincil Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video4.mp4')">Üçüncül Tüketiciler</button>
+        <button class="btn" onclick="showVideo('videos/video5.mp4')"> Yırtıcılar</button>
+        <div id="videoContainer">
+            <video id="videoPlayer" width="100%" controls>
+                <source id="videoSource" src="videos/video1.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+    </div>
     
-</p> ANA SAYFADA BULUNAN BUTONLARA TIKLAYARAK DÜZEYLER HAKKINDA ETKİLEŞİMLİ BİLGİ SAHİBİ OLABİLİRSİNİZ </p>
-
-
-    <a href="index.html" class="btn">Ana Sayfaya Dön</a>
+    <a href="about.html" class="btn">Hakkında</a>
+    
 </div>
 
-</body>
+    
+    <script>
+        function showVideo(videoFile) {
+            document.getElementById('videoContainer').style.display = 'block';
+            document.getElementById('videoSource').src = videoFile;
+            document.getElementById('videoPlayer').load();
+        }
+    </script>
+
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orta Alt Kısımda İsim Listesi</title>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                background-color: #f5f5f5; /* Arka plan rengi (Opsiyonel) */
+            }
+    
+            .name-list {
+                position: absolute;
+                bottom: 0px; /* Sayfanın altından mesafe */
+                left: 50%; /* Yatayda ortalamak için */
+                transform: translateX(-50%); /* Tam ortaya hizalamak için */
+                font-size: 22px;
+                color: rgb(5, 5, 5);
+                font-family: 'Luckiest Guy', cursive;
+                text-align: center;
+            }
+    
+            .name-list ul {
+                padding: 0;
+                margin: 0;
+            }
+    
+            .name-list li {
+                list-style: none;
+                margin-bottom: 7px;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="name-list">
+            <ul>
+                <li>11/D SINIF ÖĞRENCİLERİ</li>
+                
+            </ul>
+        </div>
+
+        <script>
+            function showAbout() {
+                document.getElementById("aboutSection").style.display = "block"; // Hakkında bölümünü göster
+                document.getElementById("content").style.display = "none"; // Ana içeriği gizle
+            }
+        
+            function goHome() {
+                document.getElementById("aboutSection").style.display = "none"; // Hakkında bölümünü gizle
+                document.getElementById("content").style.display = "block"; // Ana içeriği göster
+            }
+        </script>
+
+    </body>
 </html>
