@@ -101,7 +101,7 @@
       
 
         .btn:hover {
-            background-color: #45a049;
+            background-color: #2066a0;
         }
 
         /* Video Gösterme Alanı */
@@ -114,11 +114,12 @@
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
+             z-index: 10;
         }
 
         #videoContainer video {
-            width: 100%;
-            max-width: 600px;
+            width: 200%;
+            max-width: 800px;
             display: block;
             margin: 0 auto;
         }
@@ -235,6 +236,7 @@
         right: -320px; /* Butonu piramidin sağ kenarına yerleştir */
         transform: rotate(63deg); /* Eğik hale getir */
         transform-origin: left center;
+        z-index: 5;
     }
     
     /* Butonun görünümü */
@@ -286,8 +288,7 @@
         }
     
         .saprotrof {
-            top: -470px;
-            right: -260px;
+            right: -320px;
             transform: rotate(63deg); /* Mobilde daha küçük açı */
         }
     
@@ -295,6 +296,38 @@
             font-size: 14px;
             padding: 17px 120px;
         }
+
+        #videoContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+             z-index: 10;
+             width: 200%;
+        }
+
+        #videoContainer video {
+            width: 200%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #videoContainer button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
     }</style>
 
 
