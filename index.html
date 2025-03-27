@@ -1,8 +1,108 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    
+    
+    <div class="intro">
+        <h1 class="logo-header" >
+          <span class="logo">11D</span><span class="logo"> Gururla Sunar.</span><br>
+        </h1>
+    </div>
+    <header>
+    <h4></h4>
+    </header>
+    <style>*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier", monospace;
+        }
+        
+        header{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        }
+        
+        header h4{
+        position: absolute;
+        left: 10%;
+        bottom: 1rem;
+        font-size: 1.6rem;
+        }
+        
+        /* Splash Screen */
+        
+        .intro{
+        position: fixed;
+        z-index: 50;
+        left: 0%;
+        top: 0%;
+        width: 100%;
+        height: 100vh;
+        background-color: #2B2D42;
+        transition: 1s;
+        }
+        
+        .logo-header{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #D9DCD6;
+        }
+        
+        .logo{
+        position: relative;
+        display: inline-block;
+        bottom: -20px;
+        opacity: 0;
+        }
+        
+        .logo.active{
+        bottom: 0;
+        opacity: 1;
+        transition: ease-in-out 0.5s;
+        }
+        
+        .logo.fade{
+        bottom: 0;
+        opacity: 0;
+        transition: ease-in-out 0.5s;
+        }</style>
+    
+    
+    
+    <script>let intro = document.querySelector('.intro')
+        let logo = document.querySelector('.logo-header')
+        let logoSpan = document.querySelectorAll('.logo')
+        window.addEventListener('DOMContentLoaded',()=>{
+        setTimeout(()=>{
+        logoSpan.forEach((span,idx) => {
+          setTimeout(()=>{
+            span.classList.add('active')
+        }, (idx+1)*400);
+        });
+        
+        setTimeout(()=>{
+        logoSpan.forEach((span,idx)=>{
+          setTimeout(()=>{
+            span.classList.remove('active');
+            span.classList.add('fade');
+          }, (idx+1)*50)
+        })
+        },2000);
+        setTimeout(() => {
+        intro.style.top= '-100vh'
+        },2300);
+        })
+        })</script>
+    
+    
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Besin Piramidi</title>
@@ -31,7 +131,7 @@
         .level {
             text-align: center;
             padding: 15px;
-            color: white;
+            color: rgb(0, 0, 0);
             font-size: 18px;
             border-radius: 5px;
             margin: 5px 0;
@@ -40,7 +140,7 @@
         }
 
         /* Katmanların genişlikleri */
-        .base { width: 23%; }
+        .base { width: 30%; }
         .level1 { width: 40%; }
         .level2 { width: 60%; }
         .level3 { width: 80%; }
@@ -369,7 +469,7 @@
             <a href="https://www.instagram.com/aliosmanmarrt/" target="_blank">
                 <img src="images/instagram.png" alt="Instagram"> Ali Osman Mart
             </a>
-            <a href="https://www.instagram.com/serkan_trnn_/" target="_blank">
+            <a href="https://www.instagram.com/serkan_tnnn/" target="_blank">
                 <img src="images/instagram.png" alt="Instagram"> Serkan Torun
             </a>
             <a href="https://www.instagram.com/_yusufcinar/" target="_blank">
@@ -443,7 +543,7 @@
         }
 
         @media (max-width: 768px) {
-    #videoContainer video {
+    .videoContainer {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -455,7 +555,6 @@
         height: auto;
     }
 }
-
     
 
 
