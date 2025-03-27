@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Besin Piramidi</title>
@@ -214,6 +213,89 @@
     border-radius: 5px;
     font-size: 14px;
 }</style>
+
+
+ 
+<div class="piramid-container">
+    <div class="saprotrof">
+        <button class="saprotrof-btn">Saprotroflar</button>
+    </div>
+
+    <style>.piramid-container {
+        position: relative;
+        width: 260px; /* Piramit genişliği */
+        margin: 70px auto;
+        text-align: center;
+    }
+    
+    /* Saprotrof butonu eğik olacak ve piramidin yanına yerleşecek */
+    .saprotrof {
+        position: absolute;
+        top: -470px;
+        right: -320px; /* Butonu piramidin sağ kenarına yerleştir */
+        transform: rotate(63deg); /* Eğik hale getir */
+        transform-origin: left center;
+    }
+    
+    /* Butonun görünümü */
+    .saprotrof-btn {
+        background-color: #E8C27E; /* Açık kahverengi */
+        color: black;
+        padding: 17px 120px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .saprotrof-btn:hover {
+        background-color: #D1A767;
+    }
+    
+    /* Piramit katmanlarını şekillendirme */
+    .piramid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .katman {
+        width: 100%;
+        max-width: 200px;
+        padding: 15px;
+        margin: 3px 0;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+    }
+    
+    /* Katmanlara farklı renkler verelim */
+    .katman:nth-child(1) { background-color: #89CFF0; } /* Mavi - Şahin */
+    .katman:nth-child(2) { background-color: #A9A9A9; } /* Gri - Yılan */
+    .katman:nth-child(3) { background-color: #8FBC8F; } /* Yeşilimsi - Kurbağa */
+    .katman:nth-child(4) { background-color: #90EE90; } /* Açık yeşil - Çekirge */
+    .katman:nth-child(5) { background-color: #FFB6C1; } /* Pembe - Çayır Bitkisi */
+    
+    /* Mobil uyumluluk */
+    @media (max-width: 768px) {
+        .piramid-container {
+            width: 90%;
+        }
+    
+        .saprotrof {
+            right: -320px;
+            transform: rotate(25deg); /* Mobilde daha küçük açı */
+        }
+    
+        .saprotrof-btn {
+            font-size: 14px;
+            padding: 17px 120px;
+        }
+    }</style>
+
 
 </body>
 </html>
